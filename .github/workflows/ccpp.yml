@@ -1,0 +1,17 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: compile (release)
+      run: |
+         sudo mkdir build
+         sudo cd build
+         sudo cmake .. -DCMAKE_BUILD_TYPE=Release
+         sudo make
